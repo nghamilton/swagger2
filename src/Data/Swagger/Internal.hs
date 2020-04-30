@@ -41,7 +41,6 @@ import           Data.String              (IsString(..))
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           GHC.Generics             (Generic)
-import           Network.Socket           (HostName, PortNumber)
 import           Network.HTTP.Media       (MediaType)
 import           Text.Read                (readMaybe)
 
@@ -187,8 +186,8 @@ instance IsString License where
 
 -- | The host (name or ip) serving the API. It MAY include a port.
 data Host = Host
-  { _hostName :: HostName         -- ^ Host name.
-  , _hostPort :: Maybe PortNumber -- ^ Optional port.
+  { _hostName :: String         -- ^ Host name.
+  , _hostPort :: Maybe Integer  -- ^ Optional port.
   } deriving (Eq, Show, Generic, Typeable)
 
 instance IsString Host where
